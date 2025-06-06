@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ProductManagement.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Buscar Productos</h2>
+
+    <form method="get" action="/Product/Index" class="row g-3 mb-4">
+        <div class="col-auto">
+            <input type="text" name="productId" class="form-control" placeholder="Ingrese ID del producto" />
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Tax (19%)</th>                   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var producto in Model)
+                {
+                    <tr>
+                        <td>@producto.Title</td>
+                        <td>@producto.Description</td>
+                        <td>@producto.Price.ToString("C")</td>
+                        <td>@producto.Tax.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
