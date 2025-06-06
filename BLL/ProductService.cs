@@ -35,7 +35,7 @@ namespace ProductManagement.BLL
             return product;
         }
 
-        private decimal CalcularImpuesto(decimal precio)
+        public decimal CalcularImpuesto(decimal precio)
         {
             return precio * 0.19m;
         }
